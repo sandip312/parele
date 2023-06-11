@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoute=require('./routes/user');
+const contactRoutes = require('./routes/contacts');
 const productRoutes = require('./routes/productRoutes');
 const dbConnect = require('./db/dbConnect');
 const cors = require('cors');
@@ -21,6 +22,9 @@ app.use(cors())
 // Route
 app.use("/user",userRoute)
 app.use('/api', productRoutes);
+app.use('/api/contact', contactRoutes);
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

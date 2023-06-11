@@ -4,6 +4,7 @@ const dbConnect = async() => {
         const res = await mongoose.connect('mongodb://127.0.0.1:27017/pareleDb',{
             useNewUrlParser: true,
             useUnifiedTopology: true,
+           
         });
         if(res){
             console.log("connected to mongodb")

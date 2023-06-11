@@ -40,8 +40,8 @@ exports.loginUser = async (req, res) => {
     if (user) {
         // Compare the provided password with the hashed password in the database
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (isPasswordValid) {
             // phonenumber,password are valid to  generate JWT token
+        if (isPasswordValid) {
             const token = jwt.sign({ phoneNumber: phoneNumber }, process.env.JWT_KEY );
             //send any data from db ,you can access from frontend and can use in redux
             res.json({ message: "Login Succcess", success: true, token: token, role: user.role, id: user._id, fullname: user.fullname, phoneNumber: user.phoneNumber }) 
